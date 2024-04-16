@@ -2,14 +2,14 @@
 import React from 'react';
 import { View, Text, Button, StyleSheet } from 'react-native';
 
-const SavingsGoals = () => {
+const SavingsGoals = ({ navigation }) => {
     return (
       <View style={styles.container}>
         <Text style={styles.title}>Goals</Text>
         <Button title="New Car $6k/$10k 60%" />
         <Button title="Vacation $2k/$5k 40%" />
         <Button title="Trip To Dubai $0/$3k 0%" />
-        <Button title="+ NEW GOAL" />
+        <Button title="+ NEW GOAL" onPress={() => navigation.navigate('newGoal')} />
       </View>
     );
   };

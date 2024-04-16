@@ -2,12 +2,12 @@
 import React from 'react';
 import { View, Text, Button, StyleSheet } from 'react-native';
 
-const ProfileScreen = () => {
+const ProfileScreen = ({ navigation }) => {
     return (
       <View style={styles.container}>
-        <Text style={styles.title}>Mark Jonas</Text>
+        <Text style={styles.title}>Mark Jones</Text>
         <Button title="Dashboard" />
-        <Button title="Savings Goals" />
+        <Button title="Savings Goals" onPress={() => navigation.navigate('savingGoal')} />
         <Button title="Insights Today" />
         <Button title="Budget Tracker" />
         <Button title="Customer Support" />

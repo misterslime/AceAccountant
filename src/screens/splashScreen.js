@@ -7,7 +7,7 @@ const SplashScreen = ({ navigation }) => {
       <View style={styles.container}>
         <Text style={styles.title}>ACE ACCOUNTING</Text>
         <Text style={styles.title}>Made for Canadian New Comers</Text>
-        <Button title="Start" onPress={() => navigation.navigate('SignUp')} />
+        <Button title="Start" onPress={() => navigation.navigate('Welcome')} />
       </View>
     );
   };

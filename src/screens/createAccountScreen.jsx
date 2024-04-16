@@ -10,6 +10,7 @@ const CreateAccount = ({ navigation }) => {
         <TextInput style={styles.input}  placeholder="Password" secureTextEntry={true} />
         <TextInput style={styles.input}  placeholder="Confirm Password" secureTextEntry={true} />
         <Button title="Create account" onPress={() => navigation.navigate('MainPage')} />
+        <Button title="Go Back" onPress={() => navigation.navigate('Welcome')} />
       </View>
     );
   };
@@ -52,4 +53,4 @@ const CreateAccount = ({ navigation }) => {
     },
   });
 
-  export { CreateAccount};
+  export { CreateAccount };

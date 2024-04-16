@@ -1,23 +1,23 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
-import { View, Text, Button, StyleSheet } from 'react-native';
+import { View, Button, TextInput, StyleSheet } from 'react-native';
 
-const MainPage = ({ navigation }) => {
+const SignIn = ({ navigation }) => {
     return (
       <View style={styles.container}>
-        <Text style={styles.title}>Welcome to Canada, Mark!</Text>
-        <Text style={styles.title}>Are You...?</Text>
-        <Button title="An International Student" onPress={() => navigation.navigate('Profile')} />
-        <Button title="On a Work Permit" onPress={() => navigation.navigate('Profile')} />
-        <Button title="Planning to Start A Business" onPress={() => navigation.navigate('Profile')} />
+        <TextInput style={styles.input} placeholder="Email" />
+        <TextInput style={styles.input} placeholder="Password" secureTextEntry={true} />
+        <Button title="Sign In" onPress={() => navigation.navigate('mainPage')} />
+        <Button title="Go Back" onPress={() => navigation.navigate('Welcome')} />
       </View>
     );
   };
 
-  const colors = {
-    primary: '#31A099',
-    secondary: '#FFFFFF',
-    tertiary: '#19173D',
+// Define the colors
+const colors = {
+    primary: '#31A099', // for any buttons or squares
+    secondary: '#FFFFFF', // for the letters/writing
+    tertiary: '#19173D', // for the background
   };
 
   // Define the styles
@@ -52,4 +52,4 @@ const MainPage = ({ navigation }) => {
     },
   });
 
-export { MainPage };
+  export { SignIn };

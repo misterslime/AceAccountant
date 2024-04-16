@@ -2,13 +2,13 @@
 import React from 'react';
 import { View, Text, Button, StyleSheet } from 'react-native';
 
-const SignUp = ({ navigation }) => {
+const Welcome = ({ navigation }) => {
     return (
       <View style={styles.container}>
         <Text style={styles.title}>Learn about Canada’s Banking With us</Text>
         <Text style={styles.title}>We are your new financial guide to recommend the best bank account for you!</Text>
-        <Button title="Create account" onPress={() => navigation.navigate('CreateAccount')} />
-        <Button title="Login" onPress={() => navigation.navigate('Login')} />
+        <Button title="Create account " onPress={() => navigation.navigate('CreateAccount')} />
+        <Button title="SignIn" onPress={() => navigation.navigate('SignIn')} />
       </View>
     );
   };
@@ -51,4 +51,4 @@ const SignUp = ({ navigation }) => {
     },
   });
 
-export { SignUp };
+export { Welcome };
