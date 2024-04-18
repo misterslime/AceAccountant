@@ -5,6 +5,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { SplashScreen } from '../src/screens/splashScreen';
 import { Welcome } from '../src/screens/welcomeScreen';
+import { CameraScreen } from  '../src/screens/cameraScreen';
+import { OCRResultScreen } from  '../src/screens/ocrResultScreen';
 import { MainPage } from '../src/screens/mainPage';
 import { CreateAccount } from '../src/screens/createAccountScreen';
 import { ProfileScreen } from '../src/profile/profileScreen';
@@ -28,6 +30,8 @@ export default function AppNavigation() {
                     <Stack.Screen name="SavingsGoal" component={SavingsGoals} />
                     <Stack.Screen name="NewGoal" component={NewGoal} />
                     <Stack.Screen name="EditGoal" component={EditGoal} />
+                    <Stack.Screen name="Camera" component={CameraScreen} />
+                    <Stack.Screen name="OCRResult" component={OCRResultScreen} />
                 </Stack.Navigator>
             </NavigationContainer>
           );
