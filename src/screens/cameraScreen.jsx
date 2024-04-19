@@ -6,9 +6,9 @@ import RNTextDetector from "rn-text-detector";
 const CameraScreen = ({ navigation }) => {
     const [state, setState] = useState({
         loading: false,
+        data: null,
         image: null,
-        error: null,
-        textRecognition: null
+        error: null
     });
 
     function onPress() {
@@ -22,18 +22,17 @@ const CameraScreen = ({ navigation }) => {
             return;
         }
         if (!!media && media.assets) {
-            const file = media.assets[0].uri; 
-            const textRecognition = await RNTextDetector.detectFromUri(file);
+            const file = media.assets[0].uri;
             setState({
                 ...state,
+                data: getReceiptData(file),
                 image: file,
-                loading: false,
-                textRecognition: textRecognition
+                loading: false
             });
         }
     }
 
-    async function getReceiptData() {
+    async function getReceiptData(image) {
         var receiptOcrEndpoint = 'https://ocr.asprise.com/api/v1/receipt';
         var request = require('request');
         request.post({
@@ -41,7 +40,7 @@ const CameraScreen = ({ navigation }) => {
         formData: {
             api_key: 'TEST',
             recognizer: 'auto',
-            file: state.image
+            file: image
         },
         }, function(error, response, body) {
             if(error) {
