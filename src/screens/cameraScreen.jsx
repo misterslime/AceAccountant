@@ -20,8 +20,10 @@ const CameraScreen = ({ navigation }) => {
             setState({ ...state, loading: false });
             return;
         }
+
         if (!!media && media.assets) {
             const file = media.assets[0].uri;
+
             setState({
                 ...state,
                 data: getReceiptData(file),
@@ -34,6 +36,7 @@ const CameraScreen = ({ navigation }) => {
     async function getReceiptData(image) {
         var receiptOcrEndpoint = 'https://ocr.asprise.com/api/v1/receipt';
         var request = require('request');
+
         request.post({
         url: receiptOcrEndpoint,
         formData: {
@@ -44,6 +47,8 @@ const CameraScreen = ({ navigation }) => {
         }, function(error, response, body) {
             if(error) {
                 console.error(error);
+
+                setState({ ...state, error: error });
             }
             return body;
         });
