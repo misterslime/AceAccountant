@@ -1,29 +1,71 @@
-import React from 'react';
-import { View, StyleSheet } from 'react-native';
-import { RNCamera } from '@react-native-camera/camera';
-import { FirebaseMLVision } from '@react-native-firebase';
-import RNTextDetector from "react-native-text-detector";
+import React, { useState } from "react";
+import { TouchableOpacity, View } from "react-native";
+import { launchCamera, launchImageLibrary } from "react-native-image-picker";
+import RNTextDetector from "rn-text-detector";
 
-const CameraScreen = () => {
-  return (
-    <View style={styles.container}>
-        <RNCamera
-            style={styles.preview}
-            type={RNCamera.Constants.Type.back}
-            captureAudio={false}
-        />
-    </View>
-  );
-};
+const CameraScreen = ({ navigation }) => {
+    const [state, setState] = useState({
+        loading: false,
+        image: null,
+        error: null,
+        textRecognition: null
+    });
 
-const processImageForOCR = async (imageUri) => {
-    try {
-        const processedImage = await FirebaseMLVision.cloudDocumentTextRecognizerProcessImage(imageUri);
-        const recognizedText = processedImage.text;
-        return recognizedText;
-    } catch (error) {
-        console.error('Error processing image for OCR:', error);
+    function onPress() {
+        setState({ ...state, loading: true });
+        type === "capture" ? launchCamera({ mediaType: "image" }, onImageSelect) : launchImageLibrary({ mediaType: "image" }, onImageSelect);
     }
+
+    async function onImageSelect(media) {
+        if (!media) {
+            setState({ ...state, loading: false });
+            return;
+        }
+        if (!!media && media.assets) {
+            const file = media.assets[0].uri; 
+            const textRecognition = await RNTextDetector.detectFromUri(file);
+            setState({
+                ...state,
+                image: file,
+                loading: false,
+                textRecognition: textRecognition
+            });
+        }
+    }
+
+    async function getReceiptData() {
+        var receiptOcrEndpoint = 'https://ocr.asprise.com/api/v1/receipt';
+        var request = require('request');
+        request.post({
+        url: receiptOcrEndpoint,
+        formData: {
+            api_key: 'TEST',
+            recognizer: 'auto',
+            file: state.image
+        },
+        }, function(error, response, body) {
+            if(error) {
+                console.error(error);
+            }
+            return body;
+        });
+    }
+
+    return (
+        <View style={styles.content}>
+            <Text style={styles.title}>RN OCR SAMPLE</Text>
+            <View style={styles.preview}>
+                <TouchableOpacity style={styles.button} onPress={() => onPress("capture")}>
+                    <Text>Take Photo</Text>
+                </TouchableOpacity>
+                <View style={styles.preview}> 
+                    <TouchableOpacity style={styles.button} onPress={() => onPress("library")}>
+                        <Text>Pick a Photo</Text>
+                    </TouchableOpacity>
+                </View>
+            </View>
+        </View>
+    );
 };
 
 // Define the colors

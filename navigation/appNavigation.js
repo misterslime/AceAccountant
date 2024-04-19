@@ -31,7 +31,6 @@ export default function AppNavigation() {
                     <Stack.Screen name="NewGoal" component={NewGoal} />
                     <Stack.Screen name="EditGoal" component={EditGoal} />
                     <Stack.Screen name="Camera" component={CameraScreen} />
-                    <Stack.Screen name="OCRResult" component={OCRResultScreen} />
                 </Stack.Navigator>
             </NavigationContainer>
           );
