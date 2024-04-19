@@ -58,11 +58,11 @@ const CameraScreen = ({ navigation }) => {
                 <TouchableOpacity style={styles.button} onPress={() => onPress("capture")}>
                     <Text>Take Photo</Text>
                 </TouchableOpacity>
-                <View style={styles.preview}> 
-                    <TouchableOpacity style={styles.button} onPress={() => onPress("library")}>
-                        <Text>Pick a Photo</Text>
-                    </TouchableOpacity>
-                </View>
+            </View>
+            <View style={styles.preview}> 
+                <TouchableOpacity style={styles.button} onPress={() => onPress("library")}>
+                    <Text>Pick a Photo</Text>
+                </TouchableOpacity>
             </View>
         </View>
     );
