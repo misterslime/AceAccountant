@@ -84,7 +84,7 @@ const CameraScreen = ({ navigation }) => {
                             data={receipt.items}
                             renderItem={({item}) => <View>
                                 <Text>{item.description} x {item.qty}</Text>
-                                <Text>{item.amount}</Text>
+                                <Text>Cost: {item.amount} {receipt.currency}</Text>
                             </View>}
                         />
                         </FlatListComponent>
