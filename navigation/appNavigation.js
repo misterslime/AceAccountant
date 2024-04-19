@@ -15,6 +15,7 @@ import { NewGoal } from '../src/profile/savings/newGoal';
 import { EditGoal } from '../src/profile/savings/editGoal';
 import { useSelector } from 'react-redux';
 import { SignIn } from '../src/screens/signInScreen';
+import BudgetTracker from '../src/screens/budgetTracker';
 
 const Stack = createNativeStackNavigator();
 
@@ -28,6 +29,7 @@ export default function AppNavigation() {
                     <Stack.Screen name="Main" component={MainPage} />
                     <Stack.Screen name="Profile" component={ProfileScreen} />
                     <Stack.Screen name="SavingsGoal" component={SavingsGoals} />
+                    <Stack.Screen name="BudgetTracker" component={BudgetTracker} />
                     <Stack.Screen name="NewGoal" component={NewGoal} />
                     <Stack.Screen name="EditGoal" component={EditGoal} />
                     <Stack.Screen name="Camera" component={CameraScreen} />

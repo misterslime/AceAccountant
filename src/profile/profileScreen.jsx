@@ -7,9 +7,9 @@ const ProfileScreen = ({ navigation }) => {
       <View style={styles.container}>
         <Text style={styles.title}>Mark Jones</Text>
         <Button title="Dashboard" />
-        <Button title="Savings Goals" onPress={() => navigation.navigate('savingGoal')} />
+        <Button title="Savings Goals" onPress={() => navigation.navigate('SavingsGoal')} />
         <Button title="Insights Today" />
-        <Button title="Budget Tracker" />
+        <Button title="Budget Tracker" onPress={() => navigation.navigate('BudgetTracker')} />
         <Button title="Customer Support" />
         <Button title="Settings" />
       </View>
