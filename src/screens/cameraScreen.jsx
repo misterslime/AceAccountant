@@ -67,6 +67,31 @@ const CameraScreen = ({ navigation }) => {
                     <Text>Pick a Photo</Text>
                 </TouchableOpacity>
             </View>
+
+            {state.data ? (
+            <View style={styles.preview}> 
+                <FlatList
+                    data={state.data.receipts}
+                    renderItem={({receipt}) => 
+                    <FlatListComponent key={receipt.receipt_no}>
+                        <Text>Receipt Number: {receipt.receipt_no}</Text>
+                        <Text>Merchant: {receipt.merchant_name}</Text>
+                        <Text>Address: {receipt.merchant_address}</Text>
+                        <Text>Time: {receipt.time}</Text>
+                        <Text>Total: {receipt.total} {receipt.currency}</Text>
+                        <Text>Tax: {receipt.tax}</Text>
+                        <FlatList
+                            data={receipt.items}
+                            renderItem={({item}) => <View>
+                                <Text>{item.description} x {item.qty}</Text>
+                                <Text>{item.amount}</Text>
+                            </View>}
+                        />
+                        </FlatListComponent>
+                    }
+                />
+            </View>
+            ) : null}
         </View>
     );
 };
