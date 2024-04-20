@@ -9,7 +9,7 @@ const SavingsGoals = ({ navigation }) => {
         <Button title="New Car $6k/$10k 60%" />
         <Button title="Vacation $2k/$5k 40%" />
         <Button title="Trip To Dubai $0/$3k 0%" />
-        <Button title="+ NEW GOAL" onPress={() => navigation.navigate('newGoal')} />
+        <Button title="+ NEW GOAL" onPress={() => navigation.navigate('NewGoal')} />
       </View>
     );
   };

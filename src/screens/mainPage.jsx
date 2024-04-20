@@ -7,9 +7,9 @@ const MainPage = ({ navigation }) => {
       <View style={styles.container}>
         <Text style={styles.title}>Welcome to Canada, Mark!</Text>
         <Text style={styles.title}>Are You...?</Text>
-        <Button title="An International Student" onPress={() => navigation.navigate('Profile')} />
-        <Button title="On a Work Permit" onPress={() => navigation.navigate('Profile')} />
-        <Button title="Planning to Start A Business" onPress={() => navigation.navigate('Profile')} />
+        <Button title="An International Student" onPress={() => navigation.navigate('ProfileScreen')} />
+        <Button title="On a Work Permit" onPress={() => navigation.navigate('ProfileScreen')} />
+        <Button title="Planning to Start A Business" onPress={() => navigation.navigate('ProfileScreen')} />
       </View>
     );
   };

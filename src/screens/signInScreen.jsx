@@ -7,7 +7,7 @@ const SignIn = ({ navigation }) => {
       <View style={styles.container}>
         <TextInput style={styles.input} placeholder="Email" />
         <TextInput style={styles.input} placeholder="Password" secureTextEntry={true} />
-        <Button title="Sign In" onPress={() => navigation.navigate('mainPage')} />
+        <Button title="Sign In" onPress={() => navigation.navigate('MainPage')} />
         <Button title="Go Back" onPress={() => navigation.navigate('Welcome')} />
       </View>
     );
