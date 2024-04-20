@@ -49,6 +49,7 @@ export default function AppNavigation() {
                     <Stack.Screen name="SavingsGoal" component={SavingsGoals} />
                     <Stack.Screen name="BudgetTracker" component={BudgetTracker} />
                     <Stack.Screen name="NewGoal" component={NewGoal} />
+                    <Stack.Screen name="CameraScreen" component={CameraScreen} />
                 </Stack.Navigator>
             </NavigationContainer>
           );
