@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { TouchableOpacity, View } from "react-native";
+import { TouchableOpacity, View, StyleSheet } from "react-native";
 import { launchCamera, launchImageLibrary } from "react-native-image-picker";
 
 const CameraScreen = ({ navigation }) => {
