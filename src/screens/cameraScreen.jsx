@@ -35,23 +35,24 @@ const CameraScreen = ({ navigation }) => {
 
     async function getReceiptData(image) {
         var receiptOcrEndpoint = 'https://ocr.asprise.com/api/v1/receipt';
-        var request = require('request');
 
-        request.post({
-        url: receiptOcrEndpoint,
-        formData: {
+        fetch(receiptOcrEndpoint, {
+        method: "POST",
+        headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
             api_key: 'TEST',
             recognizer: 'auto',
             file: image
-        },
-        }, function(error, response, body) {
-            if(error) {
-                console.error(error);
-
-                setState({ ...state, error: error });
-            }
-            return body;
-        });
+        }),
+        })
+        .then((response) => response.json())
+        .then((responseData) => {
+            return responseData;
+        })
+        .done();
     }
 
     return (
