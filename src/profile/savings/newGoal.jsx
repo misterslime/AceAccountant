@@ -5,8 +5,10 @@ import { View, Button, TextInput, StyleSheet } from 'react-native';
 const NewGoal = () => {
     return (
       <View style={styles.container}>
-        <TextInput style={styles.input} placeholder="GOAL AMOUNT" />
-        <TextInput style={styles.input} placeholder="DEADLINE" />
+        <TextInput style={styles.input} placeholder="What's your Goal?" />
+        <TextInput style={styles.input} placeholder="Goal Amount (CAD)" />
+        <TextInput style={styles.input} placeholder="Monthly Deposit (CAD)" />
+        <TextInput style={styles.input} placeholder="Time to Reach your Goal: (Months)" />
         <Button title="OK" />
       </View>
     );

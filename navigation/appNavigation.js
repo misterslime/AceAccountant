@@ -26,8 +26,8 @@ export default function AppNavigation() {
         return (
             <NavigationContainer>
                 <Stack.Navigator initialRouteName="Home">
-                    <Stack.Screen name="Main" component={MainPage} />
-                    <Stack.Screen name="Profile" component={ProfileScreen} />
+                    <Stack.Screen name="MainPage" component={MainPage} />
+                    <Stack.Screen name="ProfileScreen" component={ProfileScreen} />
                     <Stack.Screen name="SavingsGoal" component={SavingsGoals} />
                     <Stack.Screen name="BudgetTracker" component={BudgetTracker} />
                     <Stack.Screen name="NewGoal" component={NewGoal} />
@@ -44,6 +44,12 @@ export default function AppNavigation() {
                     <Stack.Screen options={{headerShown: false, presentation: 'modal'}} name="Welcome" component={Welcome} />
                     <Stack.Screen options={{headerShown: false, presentation: 'modal'}} name="SignIn" component={SignIn} />
                     <Stack.Screen options={{headerShown: false, presentation: 'modal'}} name="CreateAccount" component={CreateAccount} />
+                    <Stack.Screen name="MainPage" component={MainPage} />
+                    <Stack.Screen name="ProfileScreen" component={ProfileScreen} />
+                    <Stack.Screen name="SavingsGoal" component={SavingsGoals} />
+                    <Stack.Screen name="BudgetTracker" component={BudgetTracker} />
+                    <Stack.Screen name="NewGoal" component={NewGoal} />
+                    <Stack.Screen name="CameraScreen" component={CameraScreen} />
                 </Stack.Navigator>
             </NavigationContainer>
           );
