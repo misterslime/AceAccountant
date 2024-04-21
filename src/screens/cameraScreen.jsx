@@ -23,36 +23,25 @@ const CameraScreen = ({ navigation }) => {
 
         if (!!media && media.assets) {
             const file = media.assets[0].uri;
+            setState({ ...state, image: file });
 
-            setState({
-                ...state,
-                data: getReceiptData(file),
-                image: file,
-                loading: false
-            });
+            fetch('https://ocr.asprise.com/api/v1/receipt', {
+                method: "POST",
+                headers: {
+                    Accept: "application/json",
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    api_key: 'TEST',
+                    recognizer: 'auto',
+                    file: image
+                }),
+            })
+            .then((response) => response.json())
+            .then((json) => setState({ ...state, data: json }))
+            .catch((error) => console.error(error))
+            .finally(() => setState({ ...state, loading: false }));
         }
-    }
-
-    async function getReceiptData(image) {
-        var receiptOcrEndpoint = 'https://ocr.asprise.com/api/v1/receipt';
-
-        fetch(receiptOcrEndpoint, {
-        method: "POST",
-        headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-            api_key: 'TEST',
-            recognizer: 'auto',
-            file: image
-        }),
-        })
-        .then((response) => response.json())
-        .then((responseData) => {
-            return responseData;
-        })
-        .done();
     }
 
     return (
