@@ -1,56 +1,98 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
-import { View, Text, Button, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 
 const SavingsGoals = ({ navigation }) => {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.title}>Goals</Text>
-        <Button title="New Car $6k/$10k 60%" />
-        <Button title="Vacation $2k/$5k 40%" />
-        <Button title="Trip To Dubai $0/$3k 0%" />
-        <Button title="+ NEW GOAL" onPress={() => navigation.navigate('NewGoal')} />
+  return (
+    <View style={styles.container}>
+      <Text style={styles.title}>Your Goals:</Text>
+      
+      {/* First Goal */}
+      <View style={styles.goalContainer}>
+        <Text style={styles.goalTitle}>Goal: Ipad Pro</Text>
+        <Text>Goal Amount (CAD): 1,099</Text>
+        <Text>Monthly Deposit (CAD): 110</Text>
+        <Text>Time to reach your goal (Months): 9 Months</Text>
+        <TouchableOpacity style={styles.editGoalButton} onPress={() => navigation.navigate('EditGoal')}>
+          <Text style={styles.buttonText}>Edit Goal</Text>
+        </TouchableOpacity>
       </View>
-    );
-  };
 
-// Define the colors
+      {/* Space between containers */}
+      <View style={styles.space}></View>
+
+      {/* Second Goal */}
+      <View style={styles.goalContainer}>
+        <Text style={styles.goalTitle}>Goal: Studio Lamp</Text>
+        <Text>Goal Amount (CAD): 100</Text>
+        <Text>Monthly Deposit (CAD): 25</Text>
+        <Text>Time to reach your goal (Months): 4 Months</Text>
+        <TouchableOpacity style={styles.editGoalButton} onPress={() => navigation.navigate('EditGoal')}>
+          <Text style={styles.buttonText}>Edit Goal</Text>
+        </TouchableOpacity>
+      </View>
+
+      {/* New Goal Button */}
+      <TouchableOpacity style={styles.newGoalButton} onPress={() => navigation.navigate('NewGoal')}>
+        <Text style={styles.buttonText}>New Goal</Text>
+      </TouchableOpacity>
+    </View>
+  );
+};
+
 const colors = {
-    primary: '#31A099', // for any buttons or squares
-    secondary: '#FFFFFF', // for the letters/writing
-    tertiary: '#19173D', // for the background
-  };
+  primary: '#31A099',
+  secondary: '#FFFFFF',
+  tertiary: '#19173D',
+  text: '#000000',
+};
 
-  // Define the styles
-  const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: colors.tertiary,
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-    title: {
-      color: colors.secondary,
-      fontSize: 24,
-      fontWeight: 'bold',
-    },
-    button: {
-      backgroundColor: colors.primary,
-      padding: 10,
-      margin: 10,
-      borderRadius: 5,
-    },
-    buttonText: {
-      color: colors.secondary,
-      fontSize: 18,
-    },
-    input: {
-      backgroundColor: colors.secondary,
-      width: '80%',
-      padding: 10,
-      margin: 10,
-      borderRadius: 5,
-    },
-  });
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: colors.tertiary,
+    alignItems: 'center',
+    paddingHorizontal: 20,
+    paddingTop: 20,
+  },
+  title: {
+    color: colors.secondary,
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 10,
+  },
+  goalContainer: {
+    backgroundColor: colors.secondary,
+    padding: 20,
+    borderRadius: 10,
+    marginBottom: 10,
+    width: '100%',
+  },
+  goalTitle: {
+    color: colors.text,
+    fontWeight: 'bold',
+    marginBottom: 10,
+  },
+  editGoalButton: {
+    backgroundColor: colors.primary,
+    padding: 10,
+    borderRadius: 5,
+    marginTop: 10,
+  },
+  newGoalButton: {
+    backgroundColor: colors.primary,
+    padding: 10,
+    borderRadius: 5,
+    marginTop: 20,
+  },
+  buttonText: {
+    color: colors.secondary,
+    fontSize: 16,
+    textAlign: 'center',
+  },
+  space: {
+    height: 10,
+  },
+});
 
-  export { SavingsGoals };
+export { SavingsGoals };

@@ -1,15 +1,17 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
-import { View, Button, TextInput, StyleSheet } from 'react-native';
+import { View, Text, Button, TextInput, StyleSheet, Image } from 'react-native';
 
 const NewGoal = () => {
     return (
       <View style={styles.container}>
+        <Text style={styles.title}>Create a New Goal</Text>
+        <Image source={require('../../assets/Saving_Goals.jpg')} style={styles.image} />
         <TextInput style={styles.input} placeholder="What's your Goal?" />
         <TextInput style={styles.input} placeholder="Goal Amount (CAD)" />
         <TextInput style={styles.input} placeholder="Monthly Deposit (CAD)" />
         <TextInput style={styles.input} placeholder="Time to Reach your Goal: (Months)" />
-        <Button title="OK" />
+        <Button title="Save Goal" />
       </View>
     );
   };
@@ -50,6 +52,13 @@ const colors = {
       padding: 10,
       margin: 10,
       borderRadius: 5,
+    },
+    image: {
+      width: 300, // Adjust the width to fill the screen
+      height: 200, // Adjust the height as needed
+      marginTop: 20,
+      marginBottom: 20, // Add margin to separate from the text
+      borderRadius: 10, // Add border radius to make it rounded
     },
   });
 
