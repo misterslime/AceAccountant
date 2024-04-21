@@ -10,7 +10,7 @@ const CameraScreen = ({ navigation }) => {
         error: null
     });
 
-    function onPress() {
+    function onPress(type) {
         setState({ ...state, loading: true });
         type === "capture" ? launchCamera({ mediaType: "image" }, onImageSelect) : launchImageLibrary({ mediaType: "image" }, onImageSelect);
     }
