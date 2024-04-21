@@ -11,12 +11,15 @@ const MainPage = ({ navigation }) => {
       </View>
       <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('ProfileScreen')}>
         <Text style={styles.buttonText}>An International Student</Text>
+        <Image source={require('../assets/International_Student.png')} style={styles.image} />
       </TouchableOpacity>
       <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('ProfileScreen')}>
         <Text style={styles.buttonText}>On a Work Permit</Text>
+        <Image source={require('../assets/Small_Business.jpg')} style={styles.image} />
       </TouchableOpacity>
       <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('ProfileScreen')}>
         <Text style={styles.buttonText}>Planning to Start A Business</Text>
+        <Image source={require('../assets/Working_Permit.jpeg')} style={styles.image} />
       </TouchableOpacity>
     </View>
   );
@@ -65,8 +68,9 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   image: {
-    width: 20,
-    height: 20,
+    width: 50,
+    height: 50,
+    borderRadius: 25,
   },
 });
 

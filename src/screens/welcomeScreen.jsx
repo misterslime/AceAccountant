@@ -1,12 +1,13 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
 
 const Welcome = ({ navigation }) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.header}>Learn about Canada’s Banking With us</Text>
+      <Text style={styles.header}>Learn about your Expenses in Canada With us</Text>
       <Text style={styles.subheader}>We are your new financial tracker to help organize your expenses and goals!</Text>
+      <Image source={require('../assets/Tracking_Expenses.jpg')} style={styles.image} />
       <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('CreateAccount')}>
         <Text style={styles.buttonText}>Create account</Text>
       </TouchableOpacity>
@@ -57,6 +58,12 @@ const styles = StyleSheet.create({
     color: colors.secondary,
     fontSize: 16,
     textAlign: 'center',
+  },
+  image: {
+    width: '100%', // Adjust the width to fill the screen
+    height: 200, // Adjust the height as needed
+    marginBottom: 20, // Add margin to separate from the text
+    borderRadius: 10, // Add border radius to make it rounded
   },
 });
 
