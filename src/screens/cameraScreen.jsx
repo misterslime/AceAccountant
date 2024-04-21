@@ -56,7 +56,7 @@ const CameraScreen = ({ navigation }) => {
     }
 
     return (
-        <View style={styles.content}>
+        <View style={styles.container}>
             <Text style={styles.title}>RN OCR SAMPLE</Text>
             <View style={styles.preview}>
                 <TouchableOpacity style={styles.button} onPress={() => onPress("capture")}>
