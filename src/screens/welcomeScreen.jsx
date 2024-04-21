@@ -1,54 +1,63 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
-import { View, Text, Button, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 
 const Welcome = ({ navigation }) => {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.title}>Learn about Canada’s Banking With us</Text>
-        <Text style={styles.title}>We are your new financial guide to recommend the best bank account for you!</Text>
-        <Button title="Create account " onPress={() => navigation.navigate('CreateAccount')} />
-        <Button title="SignIn" onPress={() => navigation.navigate('SignIn')} />
-      </View>
-    );
-  };
+  return (
+    <View style={styles.container}>
+      <Text style={styles.header}>Learn about Canada’s Banking With us</Text>
+      <Text style={styles.subheader}>We are your new financial tracker to help organize your expenses and goals!</Text>
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('CreateAccount')}>
+        <Text style={styles.buttonText}>Create account</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('SignIn')}>
+        <Text style={styles.buttonText}>Sign In</Text>
+      </TouchableOpacity>
+    </View>
+  );
+};
 
-  const colors = {
-    primary: '#31A099',
-    secondary: '#FFFFFF',
-    tertiary: '#19173D',
-  };
+const colors = {
+  primary: '#31A099',
+  secondary: '#FFFFFF',
+  tertiary: '#19173D',
+};
 
-  // Define the styles
-  const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: colors.tertiary,
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-    title: {
-      color: colors.secondary,
-      fontSize: 24,
-      fontWeight: 'bold',
-    },
-    button: {
-      backgroundColor: colors.primary,
-      padding: 10,
-      margin: 10,
-      borderRadius: 5,
-    },
-    buttonText: {
-      color: colors.secondary,
-      fontSize: 18,
-    },
-    input: {
-      backgroundColor: colors.secondary,
-      width: '80%',
-      padding: 10,
-      margin: 10,
-      borderRadius: 5,
-    },
-  });
+// Define the styles
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: colors.tertiary,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: 20,
+  },
+  header: {
+    color: colors.secondary,
+    fontSize: 24,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginBottom: 10,
+  },
+  subheader: {
+    color: colors.secondary,
+    fontSize: 16,
+    textAlign: 'center',
+    marginBottom: 20,
+  },
+  button: {
+    backgroundColor: colors.primary,
+    paddingVertical: 15,
+    paddingHorizontal: 40,
+    marginVertical: 5,
+    borderRadius: 10,
+    width: '100%',
+  },
+  buttonText: {
+    color: colors.secondary,
+    fontSize: 16,
+    textAlign: 'center',
+  },
+});
 
 export { Welcome };

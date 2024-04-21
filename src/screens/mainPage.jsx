@@ -1,55 +1,73 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
-import { View, Text, Button, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
 
 const MainPage = ({ navigation }) => {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.title}>Welcome to Canada, Mark!</Text>
-        <Text style={styles.title}>Are You...?</Text>
-        <Button title="An International Student" onPress={() => navigation.navigate('ProfileScreen')} />
-        <Button title="On a Work Permit" onPress={() => navigation.navigate('ProfileScreen')} />
-        <Button title="Planning to Start A Business" onPress={() => navigation.navigate('ProfileScreen')} />
+  return (
+    <View style={styles.container}>
+      <View style={styles.header}>
+        <Text style={styles.headerText}>Welcome to Canada, Mark!</Text>
+        <Text style={styles.subheader}>Are You...?</Text>
       </View>
-    );
-  };
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('ProfileScreen')}>
+        <Text style={styles.buttonText}>An International Student</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('ProfileScreen')}>
+        <Text style={styles.buttonText}>On a Work Permit</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('ProfileScreen')}>
+        <Text style={styles.buttonText}>Planning to Start A Business</Text>
+      </TouchableOpacity>
+    </View>
+  );
+};
 
-  const colors = {
-    primary: '#31A099',
-    secondary: '#FFFFFF',
-    tertiary: '#19173D',
-  };
+const colors = {
+  primary: '#31A099', // for buttons
+  secondary: '#FFFFFF', // for text
+  tertiary: '#19173D', // for background
+};
 
-  // Define the styles
-  const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: colors.tertiary,
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-    title: {
-      color: colors.secondary,
-      fontSize: 24,
-      fontWeight: 'bold',
-    },
-    button: {
-      backgroundColor: colors.primary,
-      padding: 10,
-      margin: 10,
-      borderRadius: 5,
-    },
-    buttonText: {
-      color: colors.secondary,
-      fontSize: 18,
-    },
-    input: {
-      backgroundColor: colors.secondary,
-      width: '80%',
-      padding: 10,
-      margin: 10,
-      borderRadius: 5,
-    },
-  });
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: colors.tertiary,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  header: {
+    alignItems: 'center',
+    marginBottom: 20,
+  },
+  headerText: {
+    color: colors.secondary,
+    fontSize: 24,
+    fontWeight: 'bold',
+  },
+  subheader: {
+    color: colors.secondary,
+    fontSize: 18,
+    marginBottom: 10,
+  },
+  button: {
+    backgroundColor: colors.primary,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingHorizontal: 20,
+    paddingVertical: 15,
+    marginVertical: 10,
+    borderRadius: 20,
+    width: '80%',
+  },
+  buttonText: {
+    color: colors.secondary,
+    fontSize: 16,
+  },
+  image: {
+    width: 20,
+    height: 20,
+  },
+});
 
 export { MainPage };
