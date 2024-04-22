@@ -34,6 +34,7 @@ const CameraScreen = ({ navigation }) => {
                 body: JSON.stringify({
                     api_key: 'TEST',
                     recognizer: 'auto',
+                    ref_no: 'ocr_nodejs_123',
                     file: file
                 }),
             })
