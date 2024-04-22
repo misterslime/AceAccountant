@@ -68,6 +68,12 @@ const CameraScreen = ({ navigation }) => {
                 <Text style={styles.buttonText}>Pick a Photo</Text>
             </TouchableOpacity>
 
+            {state.loading ? (
+            <View style={styles.container}> 
+                <Text style={styles.title}>Please wait</Text>
+            </View>
+            ) : null}
+
             {!!state.data && !state.loading ? (
             <View style={styles.container}> 
                 <Text style={styles.title}>Total: {'' + getTotal()}</Text>
