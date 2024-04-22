@@ -60,7 +60,7 @@ const CameraScreen = ({ navigation }) => {
 
             {!!state.data ? (
             <View style={styles.container}> 
-                <Text style={styles.title}>Total: {"{"}state.data.total{"}"}</Text>
+                <Text style={styles.title}>Total: {'' + state.data.total}</Text>
                 <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('BudgetTracker')}>
                     <Text style={styles.buttonText}>Submit Expense</Text>
                 </TouchableOpacity>
