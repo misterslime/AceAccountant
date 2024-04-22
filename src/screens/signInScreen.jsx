@@ -1,15 +1,44 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import firebase from '../../config/firebase'
 
 const SignIn = ({ navigation }) => {
+  const [email, setEmail] = React.useState('');
+  const [password, setPassword] = React.useState('');
+
+  const handleSignIn = async () => {
+    try {
+      const auth = getAuth(firebase);
+      await signInWithEmailAndPassword(auth, email, password);
+      navigation.navigate('MainPage');
+    } catch (error) {
+      console.error('Sign-in error:', error);
+      // Handle sign-in error (e.g., display an error message)
+    }
+  };
+
   return (
     <View style={styles.container}>
       <Text style={styles.header}>Sign In to your Account</Text>
       <Text style={styles.subheader}>Remember, having organized finances is the key to maintaining an organized and stress-free life!</Text>
-      <TextInput style={styles.input} placeholder="Email" />
-      <TextInput style={styles.input} placeholder="Password" secureTextEntry={true} />
-      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('MainPage')}>
+      <TextInput
+        style={styles.input}
+        placeholder="Email"
+        value={email}
+        onChangeText={setEmail}
+        autoCapitalize="none"
+      />
+      <TextInput
+        style={styles.input}
+        placeholder="Password"
+        value={password}
+        onChangeText={setPassword}
+        secureTextEntry={true}
+        autoCapitalize="none"
+      />
+      <TouchableOpacity style={styles.button} onPress={handleSignIn}>
         <Text style={styles.buttonText}>Sign In</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Welcome')}>

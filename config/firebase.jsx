@@ -21,7 +21,4 @@ const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
 export const auth = getAuth(app);
 
-export const tripsRef = collection(db, 'trips');
-export const expensesref = collection(db, 'expenses');
-
 export default app;

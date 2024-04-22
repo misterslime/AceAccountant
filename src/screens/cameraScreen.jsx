@@ -50,10 +50,6 @@ const CameraScreen = ({ navigation }) => {
     function getTotal() {
         let total = 0;
 
-        state.data.receipts.forEach(receipt => {
-            total += receipt.total;
-        });
-
         return total;
     }
 
