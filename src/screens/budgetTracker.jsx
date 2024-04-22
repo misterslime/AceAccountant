@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
 
-const BudgetTracker = () => {
+const BudgetTracker = ({navigation, route}) => {
     const [balance, setBalance] = useState(0);
     const [income, setIncome] = useState(0);
     const [expenses, setExpenses] = useState(0);
