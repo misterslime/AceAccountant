@@ -41,7 +41,7 @@ const CameraScreen = ({ navigation }) => {
             const json = await response.json();
 
             setState({ ...state, 
-                data: await json,
+                data: json,
                 loading: false 
             });
         }
