@@ -47,19 +47,15 @@ const CameraScreen = ({ navigation }) => {
     return (
         <View style={styles.container}>
             <Text style={styles.title}>RN OCR SAMPLE</Text>
-            <View style={styles.preview}>
-                <TouchableOpacity style={styles.button} onPress={() => onPress("capture")}>
-                    <Text>Take Photo</Text>
-                </TouchableOpacity>
-            </View>
-            <View style={styles.preview}> 
-                <TouchableOpacity style={styles.button} onPress={() => onPress("library")}>
-                    <Text>Pick a Photo</Text>
-                </TouchableOpacity>
-            </View>
+            <TouchableOpacity style={styles.button} onPress={() => onPress("capture")}>
+                <Text style={styles.buttonText}>Take Photo</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.button} onPress={() => onPress("library")}>
+                <Text style={styles.buttonText}>Pick a Photo</Text>
+            </TouchableOpacity>
 
             {!!state.data ? (
-            <View style={styles.preview}> 
+            <View style={styles.container}> 
                 <FlatList
                     data={state.data.receipts}
                     renderItem={({receipt}) => 
@@ -80,6 +76,9 @@ const CameraScreen = ({ navigation }) => {
                         </FlatListComponent>
                     }
                 />
+                <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('MainPage')}>
+                    <Text style={styles.buttonText}>Submit Expense</Text>
+                </TouchableOpacity>
             </View>
             ) : null}
         </View>
