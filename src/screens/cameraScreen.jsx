@@ -80,7 +80,7 @@ const CameraScreen = ({ navigation }) => {
                         </FlatListComponent>
                     }
                 />
-                <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('MainPage')}>
+                <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('BudgetTracker')}>
                     <Text style={styles.buttonText}>Submit Expense</Text>
                 </TouchableOpacity>
             </View>
