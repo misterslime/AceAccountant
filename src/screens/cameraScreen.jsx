@@ -47,6 +47,16 @@ const CameraScreen = ({ navigation }) => {
         }
     }
 
+    function getTotal() {
+        let total = 0;
+
+        state.data.receipts.forEach(receipt => {
+            total +=receipt.total;
+        });
+
+        return total;
+    }
+
     return (
         <View style={styles.container}>
             <Text style={styles.title}>RN OCR SAMPLE</Text>
@@ -60,26 +70,7 @@ const CameraScreen = ({ navigation }) => {
 
             {!!state.data ? (
             <View style={styles.container}> 
-                <FlatList
-                    data={state.data.receipts}
-                    renderItem={({receipt}) => 
-                    <FlatListComponent key={receipt.receipt_no}>
-                        <Text>Receipt Number: {receipt.receipt_no}</Text>
-                        <Text>Merchant: {receipt.merchant_name}</Text>
-                        <Text>Address: {receipt.merchant_address}</Text>
-                        <Text>Time: {receipt.time}</Text>
-                        <Text>Total: {receipt.total} {receipt.currency}</Text>
-                        <Text>Tax: {receipt.tax}</Text>
-                        <FlatList
-                            data={receipt.items}
-                            renderItem={({item}) => <View>
-                                <Text>{item.description} x {item.qty}</Text>
-                                <Text>Cost: {item.amount} {receipt.currency}</Text>
-                            </View>}
-                        />
-                        </FlatListComponent>
-                    }
-                />
+                <Text>Total: {getTotal()}</Text>
                 <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('BudgetTracker')}>
                     <Text style={styles.buttonText}>Submit Expense</Text>
                 </TouchableOpacity>
