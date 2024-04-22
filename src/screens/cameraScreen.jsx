@@ -25,7 +25,7 @@ const CameraScreen = ({ navigation }) => {
             const file = media.assets[0].uri;
             setState({ ...state, image: file });
 
-            fetch('https://ocr.asprise.com/api/v1/receipt', {
+            const response = await fetch('https://ocr.asprise.com/api/v1/receipt', {
                 method: "POST",
                 headers: {
                     Accept: "application/json",
@@ -37,10 +37,13 @@ const CameraScreen = ({ navigation }) => {
                     file: file
                 }),
             })
-            .then((response) => response.json())
-            .then((json) => setState({ ...state, data: json }))
-            .catch((error) => console.error(error))
-            .finally(() => setState({ ...state, loading: false }));
+            
+            const json = await response.json();
+
+            setState({ ...state, 
+                data: json,
+                loading: false 
+            });
         }
     }
 
