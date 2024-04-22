@@ -47,16 +47,6 @@ const CameraScreen = ({ navigation }) => {
         }
     }
 
-    function getTotal() {
-        let total = 0;
-
-        state.data.receipts.forEach(receipt => {
-            total +=receipt.total;
-        });
-
-        return total;
-    }
-
     return (
         <View style={styles.container}>
             <Text style={styles.title}>RN OCR SAMPLE</Text>
@@ -90,7 +80,6 @@ const CameraScreen = ({ navigation }) => {
                         </FlatListComponent>
                     }
                 />
-                <Text>Total: {getTotal()}</Text>
                 <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('BudgetTracker')}>
                     <Text style={styles.buttonText}>Submit Expense</Text>
                 </TouchableOpacity>
