@@ -34,7 +34,7 @@ const CameraScreen = ({ navigation }) => {
                 body: JSON.stringify({
                     api_key: 'TEST',
                     recognizer: 'auto',
-                    file: image
+                    file: file
                 }),
             })
             .then((response) => response.json())
