@@ -13,7 +13,7 @@ const ProfileScreen = ({ navigation }) => {
         <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('SavingsGoal')}>
           <Text style={styles.buttonText}>Savings Goals</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('ReceiptScanner')}>
+        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('CameraScreen')}>
           <Text style={styles.buttonText}>Receipt Scanner</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('BudgetTracker')}>
