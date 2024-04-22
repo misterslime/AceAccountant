@@ -58,7 +58,7 @@ const CameraScreen = ({ navigation }) => {
                 </TouchableOpacity>
             </View>
 
-            {state.data ? (
+            {!!state.data ? (
             <View style={styles.preview}> 
                 <FlatList
                     data={state.data.receipts}
