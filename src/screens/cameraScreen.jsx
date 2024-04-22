@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { TouchableOpacity, View, StyleSheet, Text, FlatList, FlatListComponent } from "react-native";
+import { TouchableOpacity, View, StyleSheet, Text, FlatList, FlatListComponent, Image } from "react-native";
 import { launchCamera, launchImageLibrary } from "react-native-image-picker";
 
 const CameraScreen = ({ navigation }) => {
@@ -47,6 +47,7 @@ const CameraScreen = ({ navigation }) => {
     return (
         <View style={styles.container}>
             <Text style={styles.title}>RN OCR SAMPLE</Text>
+            <Image source={require('../assets/Scanner.png')} style={styles.image} />
             <TouchableOpacity style={styles.button} onPress={() => onPress("capture")}>
                 <Text style={styles.buttonText}>Take Photo</Text>
             </TouchableOpacity>
@@ -107,14 +108,17 @@ const styles = StyleSheet.create({
     },
     button: {
         backgroundColor: colors.primary,
-        padding: 10,
-        margin: 10,
-        borderRadius: 5,
-    },
-    buttonText: {
+        paddingVertical: 15,
+        paddingHorizontal: 60,
+        marginVertical: 10,
+        borderRadius: 10,
+        width: '100%',
+      },
+      buttonText: {
         color: colors.secondary,
-        fontSize: 18,
-    },
+        fontSize: 16,
+        textAlign: 'center',
+      },
     input: {
         backgroundColor: colors.secondary,
         width: '80%',
@@ -128,6 +132,12 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-end',
         alignItems: 'center',
     },
+    image: {
+        width: 300, // Adjust the width to fill the screen
+        height: 200, // Adjust the height as needed
+        marginBottom: 20, // Add margin to separate from the text
+        borderRadius: 10, // Add border radius to make it rounded
+      },
 });
 
 export { CameraScreen };
